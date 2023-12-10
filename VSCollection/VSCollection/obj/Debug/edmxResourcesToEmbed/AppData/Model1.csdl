@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBCollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adminName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Officer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="officerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDNumber" Type="Int32" />
+    <Property Name="FName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Year">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yearLevel" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="DBCollectionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Event" EntityType="Self.Event" />
+    <EntitySet Name="Officer" EntityType="Self.Officer" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Year" EntityType="Self.Year" />
+    <EntitySet Name="vw_PSITS" EntityType="DBCollectionModel.vw_PSITS" />
+    <EntitySet Name="YearReport1" EntityType="DBCollectionModel.YearReport1" />
+    <EntitySet Name="vw_Admin" EntityType="DBCollectionModel.vw_Admin" />
+  </EntityContainer>
+  <EntityType Name="vw_PSITS">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Student_Name" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="yearLevel" Type="Int32" />
+  </EntityType>
+  <EntityType Name="YearReport1">
+    <Key>
+      <PropertyRef Name="Student_Name" />
+    </Key>
+    <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+    <Property Name="Year_Level" Type="Int32" />
+    <Property Name="Total_1st_Year" Type="Int32" />
+    <Property Name="Total_2nd_Year" Type="Int32" />
+    <Property Name="Total_3rd_Year" Type="Int32" />
+    <Property Name="Total_4th_Year" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vw_Admin">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="OFFICERS" />
+      <PropertyRef Name="Student_Name" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="OFFICERS" Type="String" Nullable="false" MaxLength="515" FixedLength="false" Unicode="false" />
+    <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="yearLevel" Type="Int32" />
+  </EntityType>
+</Schema>

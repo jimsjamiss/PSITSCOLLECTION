@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VSCollection.Repository;
 
 namespace VSCollection
 {
@@ -21,6 +22,20 @@ namespace VSCollection
         {
             new Form1().Show();
             this.Hide();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+        public void loadgrid()
+        {
+            UserInfo userInfo = new UserInfo();
+            gridList.DataSource = userInfo.vw_YearReport();
+        }
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            loadgrid();
         }
     }
 }

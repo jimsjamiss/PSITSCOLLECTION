@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBCollectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminName" Type="varchar" MaxLength="255" />
+          <Property Name="role" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eventName" Type="varchar" MaxLength="255" />
+          <Property Name="eventDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Officer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="officerName" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNumber" Type="int" />
+          <Property Name="FName" Type="varchar" MaxLength="255" />
+          <Property Name="LName" Type="varchar" MaxLength="255" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Year">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yearLevel" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Admin">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="OFFICERS" />
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="OFFICERS" Type="varchar" MaxLength="515" Nullable="false" />
+          <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+          <Property Name="yearLevel" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_PSITS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_PSITS">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+          <Property Name="yearLevel" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="YearReport1">
+          <Key>
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+          <Property Name="Year_Level" Type="int" />
+          <Property Name="Total_1st_Year" Type="int" />
+          <Property Name="Total_2nd_Year" Type="int" />
+          <Property Name="Total_3rd_Year" Type="int" />
+          <Property Name="Total_4th_Year" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DBCollectionModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Officer" EntityType="Self.Officer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_Admin" EntityType="Self.vw_Admin" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Admin].[id] AS [id], 
+    [vw_Admin].[OFFICERS] AS [OFFICERS], 
+    [vw_Admin].[Student_Name] AS [Student_Name], 
+    [vw_Admin].[Course] AS [Course], 
+    [vw_Admin].[yearLevel] AS [yearLevel]
+    FROM [dbo].[vw_Admin] AS [vw_Admin]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_PSITS" EntityType="Self.vw_PSITS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_PSITS].[id] AS [id], 
+    [vw_PSITS].[Student_Name] AS [Student_Name], 
+    [vw_PSITS].[Course] AS [Course], 
+    [vw_PSITS].[yearLevel] AS [yearLevel]
+    FROM [dbo].[vw_PSITS] AS [vw_PSITS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="YearReport1" EntityType="Self.YearReport1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [YearReport1].[Student_Name] AS [Student_Name], 
+    [YearReport1].[Year_Level] AS [Year_Level], 
+    [YearReport1].[Total_1st_Year] AS [Total_1st_Year], 
+    [YearReport1].[Total_2nd_Year] AS [Total_2nd_Year], 
+    [YearReport1].[Total_3rd_Year] AS [Total_3rd_Year], 
+    [YearReport1].[Total_4th_Year] AS [Total_4th_Year]
+    FROM [dbo].[YearReport1] AS [YearReport1]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBCollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Officer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="officerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNumber" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Year">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yearLevel" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="DBCollectionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="Officer" EntityType="Self.Officer" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="Year" EntityType="Self.Year" />
+          <EntitySet Name="vw_PSITS" EntityType="DBCollectionModel.vw_PSITS" />
+          <EntitySet Name="YearReport1" EntityType="DBCollectionModel.YearReport1" />
+          <EntitySet Name="vw_Admin" EntityType="DBCollectionModel.vw_Admin" />
+        </EntityContainer>
+        <EntityType Name="vw_PSITS">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YearReport1">
+          <Key>
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+          <Property Name="Year_Level" Type="Int32" />
+          <Property Name="Total_1st_Year" Type="Int32" />
+          <Property Name="Total_2nd_Year" Type="Int32" />
+          <Property Name="Total_3rd_Year" Type="Int32" />
+          <Property Name="Total_4th_Year" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vw_Admin">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="OFFICERS" />
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="OFFICERS" Type="String" Nullable="false" MaxLength="515" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBCollectionModelStoreContainer" CdmEntityContainer="DBCollectionEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="DBCollectionModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="DBCollectionModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Officer">
+            <EntityTypeMapping TypeName="DBCollectionModel.Officer">
+              <MappingFragment StoreEntitySet="Officer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="officerName" ColumnName="officerName" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="DBCollectionModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Year">
+            <EntityTypeMapping TypeName="DBCollectionModel.Year">
+              <MappingFragment StoreEntitySet="Year">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_PSITS">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_PSITS">
+              <MappingFragment StoreEntitySet="vw_PSITS">
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YearReport1">
+            <EntityTypeMapping TypeName="DBCollectionModel.YearReport1">
+              <MappingFragment StoreEntitySet="YearReport1">
+                <ScalarProperty Name="Total_4th_Year" ColumnName="Total_4th_Year" />
+                <ScalarProperty Name="Total_3rd_Year" ColumnName="Total_3rd_Year" />
+                <ScalarProperty Name="Total_2nd_Year" ColumnName="Total_2nd_Year" />
+                <ScalarProperty Name="Total_1st_Year" ColumnName="Total_1st_Year" />
+                <ScalarProperty Name="Year_Level" ColumnName="Year_Level" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Admin">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_Admin">
+              <MappingFragment StoreEntitySet="vw_Admin">
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="OFFICERS" ColumnName="OFFICERS" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

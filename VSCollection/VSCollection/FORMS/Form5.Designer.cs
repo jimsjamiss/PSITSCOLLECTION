@@ -46,6 +46,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(660, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // hOMEToolStripMenuItem
             // 
@@ -84,6 +85,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form5";
             this.Text = "List";
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridList)).EndInit();

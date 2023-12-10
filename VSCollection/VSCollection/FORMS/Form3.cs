@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VSCollection.Repository;
 
 namespace VSCollection
 {
@@ -21,6 +22,16 @@ namespace VSCollection
         {
             new Form1().Show();
             this.Hide();
+        }
+        public void loadgrid()
+        {
+            UserInfo userInfo = new UserInfo();
+            gridAdmin.DataSource = userInfo.vw_Admin();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            loadgrid();
         }
     }
 }

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBCollectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adminName" Type="varchar" MaxLength="255" />
+    <Property Name="role" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eventName" Type="varchar" MaxLength="255" />
+    <Property Name="eventDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Officer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="officerName" Type="varchar" MaxLength="255" />
+    <Property Name="position" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNumber" Type="int" />
+    <Property Name="FName" Type="varchar" MaxLength="255" />
+    <Property Name="LName" Type="varchar" MaxLength="255" />
+    <Property Name="Course" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Year">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="yearLevel" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Admin">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="OFFICERS" />
+      <PropertyRef Name="Student_Name" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="OFFICERS" Type="varchar" MaxLength="515" Nullable="false" />
+    <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+    <Property Name="Course" Type="varchar" MaxLength="255" />
+    <Property Name="yearLevel" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_PSITS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_PSITS">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Student_Name" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+    <Property Name="Course" Type="varchar" MaxLength="255" />
+    <Property Name="yearLevel" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="YearReport1">
+    <Key>
+      <PropertyRef Name="Student_Name" />
+    </Key>
+    <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+    <Property Name="Year_Level" Type="int" />
+    <Property Name="Total_1st_Year" Type="int" />
+    <Property Name="Total_2nd_Year" Type="int" />
+    <Property Name="Total_3rd_Year" Type="int" />
+    <Property Name="Total_4th_Year" Type="int" />
+  </EntityType>
+  <EntityContainer Name="DBCollectionModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Officer" EntityType="Self.Officer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_Admin" EntityType="Self.vw_Admin" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Admin].[id] AS [id], 
+    [vw_Admin].[OFFICERS] AS [OFFICERS], 
+    [vw_Admin].[Student_Name] AS [Student_Name], 
+    [vw_Admin].[Course] AS [Course], 
+    [vw_Admin].[yearLevel] AS [yearLevel]
+    FROM [dbo].[vw_Admin] AS [vw_Admin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_PSITS" EntityType="Self.vw_PSITS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_PSITS].[id] AS [id], 
+    [vw_PSITS].[Student_Name] AS [Student_Name], 
+    [vw_PSITS].[Course] AS [Course], 
+    [vw_PSITS].[yearLevel] AS [yearLevel]
+    FROM [dbo].[vw_PSITS] AS [vw_PSITS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="YearReport1" EntityType="Self.YearReport1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [YearReport1].[Student_Name] AS [Student_Name], 
+    [YearReport1].[Year_Level] AS [Year_Level], 
+    [YearReport1].[Total_1st_Year] AS [Total_1st_Year], 
+    [YearReport1].[Total_2nd_Year] AS [Total_2nd_Year], 
+    [YearReport1].[Total_3rd_Year] AS [Total_3rd_Year], 
+    [YearReport1].[Total_4th_Year] AS [Total_4th_Year]
+    FROM [dbo].[YearReport1] AS [YearReport1]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

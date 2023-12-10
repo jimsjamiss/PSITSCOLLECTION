@@ -30,10 +30,10 @@
         {
             this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridAdmin = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // hOMEToolStripMenuItem
@@ -54,13 +54,13 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // dataGridView1
+            // gridAdmin
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(452, 484);
-            this.dataGridView1.TabIndex = 4;
+            this.gridAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridAdmin.Location = new System.Drawing.Point(0, 27);
+            this.gridAdmin.Name = "gridAdmin";
+            this.gridAdmin.Size = new System.Drawing.Size(452, 484);
+            this.gridAdmin.TabIndex = 4;
             // 
             // textBox1
             // 
@@ -78,13 +78,14 @@
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(660, 512);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridAdmin);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form3";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,7 +95,7 @@
 
         private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridAdmin;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

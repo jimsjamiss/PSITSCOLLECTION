@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBCollectionModelStoreContainer" CdmEntityContainer="DBCollectionEntities">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="DBCollectionModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="adminName" ColumnName="adminName" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="DBCollectionModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Officer">
+      <EntityTypeMapping TypeName="DBCollectionModel.Officer">
+        <MappingFragment StoreEntitySet="Officer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="officerName" ColumnName="officerName" />
+          <ScalarProperty Name="position" ColumnName="position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="DBCollectionModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Year">
+      <EntityTypeMapping TypeName="DBCollectionModel.Year">
+        <MappingFragment StoreEntitySet="Year">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_PSITS">
+      <EntityTypeMapping TypeName="DBCollectionModel.vw_PSITS">
+        <MappingFragment StoreEntitySet="vw_PSITS">
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YearReport1">
+      <EntityTypeMapping TypeName="DBCollectionModel.YearReport1">
+        <MappingFragment StoreEntitySet="YearReport1">
+          <ScalarProperty Name="Total_4th_Year" ColumnName="Total_4th_Year" />
+          <ScalarProperty Name="Total_3rd_Year" ColumnName="Total_3rd_Year" />
+          <ScalarProperty Name="Total_2nd_Year" ColumnName="Total_2nd_Year" />
+          <ScalarProperty Name="Total_1st_Year" ColumnName="Total_1st_Year" />
+          <ScalarProperty Name="Year_Level" ColumnName="Year_Level" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_Admin">
+      <EntityTypeMapping TypeName="DBCollectionModel.vw_Admin">
+        <MappingFragment StoreEntitySet="vw_Admin">
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+          <ScalarProperty Name="OFFICERS" ColumnName="OFFICERS" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
