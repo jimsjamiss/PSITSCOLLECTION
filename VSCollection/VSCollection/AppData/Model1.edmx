@@ -85,6 +85,16 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <Property Name="Total_3rd_Year" Type="int" />
           <Property Name="Total_4th_Year" Type="int" />
         </EntityType>
+        <Function Name="sp_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="IDNumber" Type="int" Mode="In" />
+          <Parameter Name="FName" Type="varchar" Mode="In" />
+          <Parameter Name="LName" Type="varchar" Mode="In" />
+          <Parameter Name="Course" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="DBCollectionModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
@@ -173,6 +183,16 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <EntitySet Name="vw_PSITS" EntityType="DBCollectionModel.vw_PSITS" />
           <EntitySet Name="YearReport1" EntityType="DBCollectionModel.YearReport1" />
           <EntitySet Name="vw_Admin" EntityType="DBCollectionModel.vw_Admin" />
+          <FunctionImport Name="sp_Delete">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Update">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="IDNumber" Mode="In" Type="Int32" />
+            <Parameter Name="FName" Mode="In" Type="String" />
+            <Parameter Name="LName" Mode="In" Type="String" />
+            <Parameter Name="Course" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="vw_PSITS">
           <Key>
@@ -292,6 +312,8 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Delete" FunctionName="DBCollectionModel.Store.sp_Delete" />
+          <FunctionImportMapping FunctionImportName="sp_Update" FunctionName="DBCollectionModel.Store.sp_Update" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

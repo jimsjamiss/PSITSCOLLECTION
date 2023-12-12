@@ -50,6 +50,16 @@
     <EntitySet Name="vw_PSITS" EntityType="DBCollectionModel.vw_PSITS" />
     <EntitySet Name="YearReport1" EntityType="DBCollectionModel.YearReport1" />
     <EntitySet Name="vw_Admin" EntityType="DBCollectionModel.vw_Admin" />
+    <FunctionImport Name="sp_Delete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Update">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="IDNumber" Mode="In" Type="Int32" />
+      <Parameter Name="FName" Mode="In" Type="String" />
+      <Parameter Name="LName" Mode="In" Type="String" />
+      <Parameter Name="Course" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="vw_PSITS">
     <Key>

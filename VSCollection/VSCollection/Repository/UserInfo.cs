@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VSCollection.AppData;
+using VSCollection.Utils;
 namespace VSCollection.Repository
 {
     internal class UserInfo
@@ -35,6 +36,48 @@ namespace VSCollection.Repository
             using (db = new DBCollectionEntities())
             {
                 return db.vw_Admin.ToList();
+            }
+        }
+        public ErrorCode DeleteRoomUsingStoredProf(int? id, ref String szResponse)
+        {
+            using (db = new DBCollectionEntities())
+            {
+                try
+                {
+                    db.sp_Delete(id);
+                    szResponse = "Deleted";
+                    return ErrorCode.Success;
+                }
+                catch (Exception ex)
+                {
+                    szResponse = ex.Message;
+                    return ErrorCode.Error;
+                }
+            }
+        }
+            public  Student GetStudentID(int id)
+        {
+            using (db = new DBCollectionEntities())
+            { 
+                return db.Student.Where(s => s.id == id).FirstOrDefault();
+            }
+        }
+      
+        public ErrorCode UpdateRoomUsingStoredProf(int sId, int sIDN, String FN, String LN, String Course, ref String szResponse)
+        {
+            using (db = new DBCollectionEntities())
+            {
+                try
+                {
+                    db.sp_Update(sId, sIDN, FN, LN, Course);
+                    szResponse = "Updated";
+                    return ErrorCode.Success;
+                }
+                catch (Exception ex)
+                {
+                    szResponse = ex.Message;
+                    return ErrorCode.Error;
+                }
             }
         }
     }

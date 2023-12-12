@@ -80,5 +80,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_Delete" FunctionName="DBCollectionModel.Store.sp_Delete" />
+    <FunctionImportMapping FunctionImportName="sp_Update" FunctionName="DBCollectionModel.Store.sp_Update" />
   </EntityContainerMapping>
 </Mapping>

@@ -12,6 +12,8 @@ namespace VSCollection.AppData
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DBCollectionEntities : DbContext
     {
@@ -33,5 +35,39 @@ namespace VSCollection.AppData
         public virtual DbSet<vw_PSITS> vw_PSITS { get; set; }
         public virtual DbSet<YearReport1> YearReport1 { get; set; }
         public virtual DbSet<vw_Admin> vw_Admin { get; set; }
+    
+        public virtual int sp_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Delete", idParameter);
+        }
+    
+        public virtual int sp_Update(Nullable<int> id, Nullable<int> iDNumber, string fName, string lName, string course)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var iDNumberParameter = iDNumber.HasValue ?
+                new ObjectParameter("IDNumber", iDNumber) :
+                new ObjectParameter("IDNumber", typeof(int));
+    
+            var fNameParameter = fName != null ?
+                new ObjectParameter("FName", fName) :
+                new ObjectParameter("FName", typeof(string));
+    
+            var lNameParameter = lName != null ?
+                new ObjectParameter("LName", lName) :
+                new ObjectParameter("LName", typeof(string));
+    
+            var courseParameter = course != null ?
+                new ObjectParameter("Course", course) :
+                new ObjectParameter("Course", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Update", idParameter, iDNumberParameter, fNameParameter, lNameParameter, courseParameter);
+        }
     }
 }

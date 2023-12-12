@@ -13,8 +13,10 @@ namespace VSCollection
 {
     public partial class Form5 : Form
     {
+        UserInfo userInfo;
         public Form5()
         {
+            userInfo = new UserInfo();
             InitializeComponent();
         }
 
@@ -36,6 +38,20 @@ namespace VSCollection
         private void Form5_Load(object sender, EventArgs e)
         {
             loadgrid();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text.Trim();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                var students = userInfo.vw_YearReport().Where(s => s.Student_Name.ToLower().Contains(searchText.ToLower()) || s.Student_Name.ToLower().Contains(searchText.ToLower())).ToList();
+                gridList.DataSource = students;
+            }
+            else
+            {
+                loadgrid(); 
+            }
         }
     }
 }

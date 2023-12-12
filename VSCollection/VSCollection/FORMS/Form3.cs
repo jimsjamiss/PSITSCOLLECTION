@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VSCollection.AppData;
 using VSCollection.Repository;
+
 
 namespace VSCollection
 {
     public partial class Form3 : Form
     {
+        UserInfo userInfo1;
         public Form3()
+
         {
+           userInfo1 = new UserInfo();
             InitializeComponent();
         }
 
@@ -32,6 +37,20 @@ namespace VSCollection
         private void Form3_Load(object sender, EventArgs e)
         {
             loadgrid();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text.Trim();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                var officers = userInfo1.vw_Admin().Where(o => o.OFFICERS.ToLower().Contains(searchText.ToLower())).ToList();
+                gridAdmin.DataSource = officers;
+            }
+            else
+            {
+                loadgrid(); 
+            }
         }
     }
 }
