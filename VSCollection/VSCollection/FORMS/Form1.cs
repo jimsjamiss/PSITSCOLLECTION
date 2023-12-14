@@ -31,7 +31,7 @@ namespace VSCollection
 
         private void aDMINToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Form3().Show();
+            new Form7().Show();
             this.Hide();
         }
 

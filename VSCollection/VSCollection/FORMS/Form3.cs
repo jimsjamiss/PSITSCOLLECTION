@@ -52,5 +52,11 @@ namespace VSCollection
                 loadgrid(); 
             }
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            new Form7().Show();
+            this.Hide();
+        }
     }
 }

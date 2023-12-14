@@ -6,7 +6,8 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="adminName" Type="varchar" MaxLength="255" />
-    <Property Name="role" Type="varchar" MaxLength="255" />
+    <Property Name="roleId" Type="int" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Event">
     <Key>
@@ -23,6 +24,16 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="officerName" Type="varchar" MaxLength="255" />
     <Property Name="position" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" />
+    <Property Name="roleId" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="roleID" />
+    </Key>
+    <Property Name="roleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="roleDesc" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
@@ -68,6 +79,16 @@ warning 6002: The table/view 'DBCollection.dbo.vw_PSITS' does not have a primary
     <Property Name="yearLevel" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.YearReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="YearReport">
+    <Key>
+      <PropertyRef Name="Student_Name" />
+    </Key>
+    <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+    <Property Name="Year_Level" Type="int" />
+    <Property Name="Total_Students" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="YearReport1">
     <Key>
@@ -94,6 +115,7 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Officer" EntityType="Self.Officer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vw_Admin" EntityType="Self.vw_Admin" store:Type="Views" store:Schema="dbo">
@@ -112,6 +134,13 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
     [vw_PSITS].[Course] AS [Course], 
     [vw_PSITS].[yearLevel] AS [yearLevel]
     FROM [dbo].[vw_PSITS] AS [vw_PSITS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="YearReport" EntityType="Self.YearReport" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [YearReport].[Student_Name] AS [Student_Name], 
+    [YearReport].[Year_Level] AS [Year_Level], 
+    [YearReport].[Total_Students] AS [Total_Students]
+    FROM [dbo].[YearReport] AS [YearReport]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="YearReport1" EntityType="Self.YearReport1" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

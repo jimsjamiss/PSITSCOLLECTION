@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gridAdmin = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAdmin)).BeginInit();
             this.SuspendLayout();
@@ -64,12 +65,23 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(491, 132);
+            this.textBox1.Location = new System.Drawing.Point(495, 203);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(127, 20);
             this.textBox1.TabIndex = 5;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRegister.Location = new System.Drawing.Point(516, 247);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(77, 41);
+            this.btnRegister.TabIndex = 12;
+            this.btnRegister.Text = "LOGOUT";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // Form3
             // 
@@ -77,6 +89,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(660, 512);
+            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.gridAdmin);
             this.Controls.Add(this.menuStrip1);
@@ -97,5 +110,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.DataGridView gridAdmin;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnRegister;
     }
 }

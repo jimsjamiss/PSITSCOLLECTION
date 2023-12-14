@@ -16,6 +16,7 @@ namespace VSCollection.AppData
     {
         public int id { get; set; }
         public string adminName { get; set; }
-        public string role { get; set; }
+        public Nullable<int> roleId { get; set; }
+        public string password { get; set; }
     }
 }

@@ -15,6 +15,20 @@ namespace VSCollection.Repository
         
             db = new DBCollectionEntities();
         }
+        public Officer GetUserByUsername(String username)
+        {
+            using (db = new DBCollectionEntities())
+            {
+                return db.Officer.Where(m => m.position == username).FirstOrDefault();
+            }
+        }
+        public Admin GetUserByUsername1(String username)
+        {
+            using (db = new DBCollectionEntities())
+            {
+                return db.Admin.Where(m => m.adminName == username).FirstOrDefault();
+            }
+        }
         public List<vw_PSITS> vw_PSITs()
         {
             using (db = new DBCollectionEntities())

@@ -30,11 +30,13 @@ namespace VSCollection.AppData
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<Officer> Officer { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Student> Student { get; set; }
         public virtual DbSet<Year> Year { get; set; }
-        public virtual DbSet<vw_PSITS> vw_PSITS { get; set; }
-        public virtual DbSet<YearReport1> YearReport1 { get; set; }
         public virtual DbSet<vw_Admin> vw_Admin { get; set; }
+        public virtual DbSet<vw_PSITS> vw_PSITS { get; set; }
+        public virtual DbSet<YearReport> YearReport { get; set; }
+        public virtual DbSet<YearReport1> YearReport1 { get; set; }
     
         public virtual int sp_Delete(Nullable<int> id)
         {

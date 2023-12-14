@@ -11,7 +11,8 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="adminName" Type="varchar" MaxLength="255" />
-          <Property Name="role" Type="varchar" MaxLength="255" />
+          <Property Name="roleId" Type="int" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -28,6 +29,16 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="officerName" Type="varchar" MaxLength="255" />
           <Property Name="position" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" />
+          <Property Name="roleId" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="roleDesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -73,6 +84,16 @@ warning 6002: The table/view 'DBCollection.dbo.vw_PSITS' does not have a primary
           <Property Name="yearLevel" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.YearReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="YearReport">
+          <Key>
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
+          <Property Name="Year_Level" Type="int" />
+          <Property Name="Total_Students" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="YearReport1">
           <Key>
@@ -99,6 +120,7 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Officer" EntityType="Self.Officer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_Admin" EntityType="Self.vw_Admin" store:Type="Views" store:Schema="dbo">
@@ -118,6 +140,13 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
     [vw_PSITS].[yearLevel] AS [yearLevel]
     FROM [dbo].[vw_PSITS] AS [vw_PSITS]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="YearReport" EntityType="Self.YearReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [YearReport].[Student_Name] AS [Student_Name], 
+    [YearReport].[Year_Level] AS [Year_Level], 
+    [YearReport].[Total_Students] AS [Total_Students]
+    FROM [dbo].[YearReport] AS [YearReport]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="YearReport1" EntityType="Self.YearReport1" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [YearReport1].[Student_Name] AS [Student_Name], 
@@ -133,13 +162,36 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBCollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBCollectionEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_Delete">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Update">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="IDNumber" Mode="In" Type="Int32" />
+            <Parameter Name="FName" Mode="In" Type="String" />
+            <Parameter Name="LName" Mode="In" Type="String" />
+            <Parameter Name="Course" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Admin" EntityType="DBCollectionModel.Admin" />
+          <EntitySet Name="Event" EntityType="DBCollectionModel.Event" />
+          <EntitySet Name="Officer" EntityType="DBCollectionModel.Officer" />
+          <EntitySet Name="Role" EntityType="DBCollectionModel.Role" />
+          <EntitySet Name="Student" EntityType="DBCollectionModel.Student" />
+          <EntitySet Name="Year" EntityType="DBCollectionModel.Year" />
+          <EntitySet Name="vw_Admin" EntityType="DBCollectionModel.vw_Admin" />
+          <EntitySet Name="vw_PSITS" EntityType="DBCollectionModel.vw_PSITS" />
+          <EntitySet Name="YearReport" EntityType="DBCollectionModel.YearReport" />
+          <EntitySet Name="YearReport1" EntityType="DBCollectionModel.YearReport1" />
+          </EntityContainer>
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="adminName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="role" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roleId" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -156,6 +208,16 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="officerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="roleId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roleDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -174,47 +236,6 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="yearLevel" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="DBCollectionEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admin" EntityType="Self.Admin" />
-          <EntitySet Name="Event" EntityType="Self.Event" />
-          <EntitySet Name="Officer" EntityType="Self.Officer" />
-          <EntitySet Name="Student" EntityType="Self.Student" />
-          <EntitySet Name="Year" EntityType="Self.Year" />
-          <EntitySet Name="vw_PSITS" EntityType="DBCollectionModel.vw_PSITS" />
-          <EntitySet Name="YearReport1" EntityType="DBCollectionModel.YearReport1" />
-          <EntitySet Name="vw_Admin" EntityType="DBCollectionModel.vw_Admin" />
-          <FunctionImport Name="sp_Delete">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_Update">
-            <Parameter Name="id" Mode="In" Type="Int32" />
-            <Parameter Name="IDNumber" Mode="In" Type="Int32" />
-            <Parameter Name="FName" Mode="In" Type="String" />
-            <Parameter Name="LName" Mode="In" Type="String" />
-            <Parameter Name="Course" Mode="In" Type="String" />
-          </FunctionImport>
-        </EntityContainer>
-        <EntityType Name="vw_PSITS">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="Student_Name" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
-          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="yearLevel" Type="Int32" />
-        </EntityType>
-        <EntityType Name="YearReport1">
-          <Key>
-            <PropertyRef Name="Student_Name" />
-          </Key>
-          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
-          <Property Name="Year_Level" Type="Int32" />
-          <Property Name="Total_1st_Year" Type="Int32" />
-          <Property Name="Total_2nd_Year" Type="Int32" />
-          <Property Name="Total_3rd_Year" Type="Int32" />
-          <Property Name="Total_4th_Year" Type="Int32" />
-        </EntityType>
         <EntityType Name="vw_Admin">
           <Key>
             <PropertyRef Name="id" />
@@ -227,55 +248,109 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="yearLevel" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="vw_PSITS">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YearReport">
+          <Key>
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+          <Property Name="Year_Level" Type="Int32" />
+          <Property Name="Total_Students" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YearReport1">
+          <Key>
+            <PropertyRef Name="Student_Name" />
+          </Key>
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="528" FixedLength="false" Unicode="false" />
+          <Property Name="Year_Level" Type="Int32" />
+          <Property Name="Total_1st_Year" Type="Int32" />
+          <Property Name="Total_2nd_Year" Type="Int32" />
+          <Property Name="Total_3rd_Year" Type="Int32" />
+          <Property Name="Total_4th_Year" Type="Int32" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBCollectionModelStoreContainer" CdmEntityContainer="DBCollectionEntities">
+          <FunctionImportMapping FunctionImportName="sp_Delete" FunctionName="DBCollectionModel.Store.sp_Delete" />
+          <FunctionImportMapping FunctionImportName="sp_Update" FunctionName="DBCollectionModel.Store.sp_Update" />
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="DBCollectionModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
                 <ScalarProperty Name="adminName" ColumnName="adminName" />
-                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Event">
             <EntityTypeMapping TypeName="DBCollectionModel.Event">
               <MappingFragment StoreEntitySet="Event">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="eventName" ColumnName="eventName" />
                 <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Officer">
             <EntityTypeMapping TypeName="DBCollectionModel.Officer">
               <MappingFragment StoreEntitySet="Officer">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="officerName" ColumnName="officerName" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="officerName" ColumnName="officerName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="DBCollectionModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="roleDesc" ColumnName="roleDesc" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Student">
             <EntityTypeMapping TypeName="DBCollectionModel.Student">
               <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
-                <ScalarProperty Name="FName" ColumnName="FName" />
-                <ScalarProperty Name="LName" ColumnName="LName" />
                 <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Year">
             <EntityTypeMapping TypeName="DBCollectionModel.Year">
               <MappingFragment StoreEntitySet="Year">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Admin">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_Admin">
+              <MappingFragment StoreEntitySet="vw_Admin">
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="OFFICERS" ColumnName="OFFICERS" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -286,6 +361,15 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
                 <ScalarProperty Name="Course" ColumnName="Course" />
                 <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YearReport">
+            <EntityTypeMapping TypeName="DBCollectionModel.YearReport">
+              <MappingFragment StoreEntitySet="YearReport">
+                <ScalarProperty Name="Total_Students" ColumnName="Total_Students" />
+                <ScalarProperty Name="Year_Level" ColumnName="Year_Level" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -301,20 +385,7 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_Admin">
-            <EntityTypeMapping TypeName="DBCollectionModel.vw_Admin">
-              <MappingFragment StoreEntitySet="vw_Admin">
-                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
-                <ScalarProperty Name="Course" ColumnName="Course" />
-                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
-                <ScalarProperty Name="OFFICERS" ColumnName="OFFICERS" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_Delete" FunctionName="DBCollectionModel.Store.sp_Delete" />
-          <FunctionImportMapping FunctionImportName="sp_Update" FunctionName="DBCollectionModel.Store.sp_Update" />
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

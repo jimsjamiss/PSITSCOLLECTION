@@ -11,4 +11,12 @@ namespace VSCollection.Utils
         Success = 0,
         Error = 1
     }
+
+    public enum Roles
+    {
+        Staff = 1,
+        Admin = 2
+    }
+
+
 }
