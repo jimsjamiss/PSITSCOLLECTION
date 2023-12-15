@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridPsits = new System.Windows.Forms.DataGridView();
@@ -50,11 +51,12 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.SkyBlue;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hOMEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(660, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(880, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -62,7 +64,7 @@
             // hOMEToolStripMenuItem
             // 
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
-            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.hOMEToolStripMenuItem.Text = "HOME";
             this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
             // 
@@ -70,81 +72,92 @@
             // 
             this.gridPsits.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.gridPsits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPsits.Location = new System.Drawing.Point(0, 27);
+            this.gridPsits.Location = new System.Drawing.Point(0, 33);
+            this.gridPsits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridPsits.Name = "gridPsits";
-            this.gridPsits.Size = new System.Drawing.Size(460, 484);
+            this.gridPsits.RowHeadersWidth = 51;
+            this.gridPsits.Size = new System.Drawing.Size(613, 596);
             this.gridPsits.TabIndex = 3;
             // 
             // txtCourse
             // 
-            this.txtCourse.Location = new System.Drawing.Point(537, 269);
+            this.txtCourse.Location = new System.Drawing.Point(716, 331);
+            this.txtCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCourse.Name = "txtCourse";
-            this.txtCourse.Size = new System.Drawing.Size(111, 20);
+            this.txtCourse.Size = new System.Drawing.Size(147, 22);
             this.txtCourse.TabIndex = 15;
             // 
             // txtLName
             // 
-            this.txtLName.Location = new System.Drawing.Point(537, 228);
+            this.txtLName.Location = new System.Drawing.Point(716, 281);
+            this.txtLName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLName.Name = "txtLName";
-            this.txtLName.Size = new System.Drawing.Size(111, 20);
+            this.txtLName.Size = new System.Drawing.Size(147, 22);
             this.txtLName.TabIndex = 16;
             // 
             // txtFName
             // 
-            this.txtFName.Location = new System.Drawing.Point(537, 192);
+            this.txtFName.Location = new System.Drawing.Point(716, 236);
+            this.txtFName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(111, 20);
+            this.txtFName.Size = new System.Drawing.Size(147, 22);
             this.txtFName.TabIndex = 17;
             // 
             // txtIDNum
             // 
-            this.txtIDNum.Location = new System.Drawing.Point(537, 147);
+            this.txtIDNum.Location = new System.Drawing.Point(716, 181);
+            this.txtIDNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIDNum.Name = "txtIDNum";
-            this.txtIDNum.Size = new System.Drawing.Size(111, 20);
+            this.txtIDNum.Size = new System.Drawing.Size(147, 22);
             this.txtIDNum.TabIndex = 18;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(476, 276);
+            this.label4.Location = new System.Drawing.Point(635, 340);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.Size = new System.Drawing.Size(50, 16);
             this.label4.TabIndex = 11;
             this.label4.Text = "Course";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(476, 235);
+            this.label3.Location = new System.Drawing.Point(635, 289);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(51, 16);
             this.label3.TabIndex = 12;
             this.label3.Text = "LName";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(476, 195);
+            this.label2.Location = new System.Drawing.Point(635, 240);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "FName";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(476, 150);
+            this.label1.Location = new System.Drawing.Point(635, 185);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 14;
             this.label1.Text = "IDNumber";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(537, 110);
+            this.txtSearch.Location = new System.Drawing.Point(716, 135);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(111, 20);
+            this.txtSearch.Size = new System.Drawing.Size(147, 22);
             this.txtSearch.TabIndex = 19;
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -152,9 +165,10 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Location = new System.Drawing.Point(527, 324);
+            this.button1.Location = new System.Drawing.Point(703, 399);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 40);
+            this.button1.Size = new System.Drawing.Size(140, 49);
             this.button1.TabIndex = 20;
             this.button1.Text = "UPDATE";
             this.button1.UseVisualStyleBackColor = false;
@@ -163,9 +177,10 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button2.Location = new System.Drawing.Point(527, 384);
+            this.button2.Location = new System.Drawing.Point(703, 473);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 40);
+            this.button2.Size = new System.Drawing.Size(140, 49);
             this.button2.TabIndex = 20;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = false;
@@ -174,19 +189,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(490, 113);
+            this.label6.Location = new System.Drawing.Point(653, 139);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 13);
+            this.label6.Size = new System.Drawing.Size(18, 16);
             this.label6.TabIndex = 14;
             this.label6.Text = "id";
             this.label6.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(660, 512);
+            this.ClientSize = new System.Drawing.Size(880, 630);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtSearch);
@@ -201,6 +217,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridPsits);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form2";
             this.Text = "PSITS";
             this.Load += new System.EventHandler(this.Form2_Load);

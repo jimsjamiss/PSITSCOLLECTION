@@ -9,29 +9,29 @@ namespace VSCollection.Repository
 {
     internal class UserInfo
     {
-        DBCollectionEntities1 db;
+        DBCollectionEntities2 db;
 
         public UserInfo() { 
         
-            db = new DBCollectionEntities1();
+            db = new DBCollectionEntities2();
         }
         public Officer GetUserByUsername(String username)
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             {
                 return db.Officer.Where(m => m.position == username).FirstOrDefault();
             }
         }
         public Admin GetUserByUsername1(String username)
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             {
                 return db.Admin.Where(m => m.adminName == username).FirstOrDefault();
             }
         }
         public List<vw_PSITS> vw_PSITs()
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             {
                 return db.vw_PSITS.ToList();
             }
@@ -39,7 +39,7 @@ namespace VSCollection.Repository
 
         public List<YearReport1> vw_YearReport()
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             {
                 return db.YearReport1.ToList();
             }
@@ -47,14 +47,14 @@ namespace VSCollection.Repository
 
         public List<vw_Admin> vw_Admin()
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             {
                 return db.vw_Admin.ToList();
             }
         }
         public ErrorCode DeleteRoomUsingStoredProf(int? id, ref String szResponse)
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             {
                 try
                 {
@@ -71,7 +71,7 @@ namespace VSCollection.Repository
         }
             public  Student GetStudentID(int id)
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             { 
                 return db.Student.Where(s => s.id == id).FirstOrDefault();
             }
@@ -79,7 +79,7 @@ namespace VSCollection.Repository
       
         public ErrorCode UpdateRoomUsingStoredProf(int sId, int sIDN, String FN, String LN, String Course, ref String szResponse)
         {
-            using (db = new DBCollectionEntities1())
+            using (db = new DBCollectionEntities2())
             {
                 try
                 {

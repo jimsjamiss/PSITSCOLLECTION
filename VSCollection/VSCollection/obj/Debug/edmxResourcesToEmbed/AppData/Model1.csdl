@@ -93,7 +93,7 @@
     <Property Name="Total_3rd_Year" Type="Int32" />
     <Property Name="Total_4th_Year" Type="Int32" />
   </EntityType>
-  <EntityContainer Name="DBCollectionEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DBCollectionEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Admin" EntityType="Self.Admin" />
     <EntitySet Name="Event" EntityType="Self.Event" />
     <EntitySet Name="Officer" EntityType="Self.Officer" />
