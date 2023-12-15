@@ -15,10 +15,10 @@ namespace VSCollection.AppData
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DBCollectionEntities : DbContext
+    public partial class DBCollectionEntities1 : DbContext
     {
-        public DBCollectionEntities()
-            : base("name=DBCollectionEntities")
+        public DBCollectionEntities1()
+            : base("name=DBCollectionEntities1")
         {
         }
     

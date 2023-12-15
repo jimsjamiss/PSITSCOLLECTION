@@ -15,16 +15,16 @@ namespace VSCollection
    
     public partial class Form4 : Form
     {
-        DBCollectionEntities db;
+        DBCollectionEntities1 db;
         public Form4()
         {
             InitializeComponent();
-            db = new DBCollectionEntities();
+            db = new DBCollectionEntities1();
         }
 
         private void loadOfficer()
         {
-            using (db = new DBCollectionEntities())
+            using (db = new DBCollectionEntities1())
             {
                 var officer = db.Officer.ToList();
 
@@ -38,7 +38,7 @@ namespace VSCollection
 
         private void loadEvent()
         {
-            using (db = new DBCollectionEntities())
+            using (db = new DBCollectionEntities1())
             {
                 var events = db.Event.ToList();
 
@@ -70,7 +70,7 @@ namespace VSCollection
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            using (db = new DBCollectionEntities())
+            using (db = new DBCollectionEntities1())
             {
                 if (String.IsNullOrEmpty(txtIDNum.Text))
                 {

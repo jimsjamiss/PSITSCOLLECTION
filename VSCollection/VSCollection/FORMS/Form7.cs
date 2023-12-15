@@ -18,17 +18,17 @@ namespace VSCollection
 {
     public partial class Form7 : Form
     {
-        DBCollectionEntities db;
+        DBCollectionEntities1 db;
         UserInfo user;
         public Form7()
         {
             InitializeComponent();
             user = new UserInfo();
-            db = new DBCollectionEntities();
+            db = new DBCollectionEntities1();
         }
         private void loadAdmin()
         {
-            using (db = new DBCollectionEntities())
+            using (db = new DBCollectionEntities1())
             {
                 var Admin = db.Admin.ToList();
 
