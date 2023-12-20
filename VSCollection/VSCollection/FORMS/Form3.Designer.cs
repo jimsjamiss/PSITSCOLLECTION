@@ -34,6 +34,7 @@
             this.gridAdmin = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.eVENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAdmin)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,8 @@
             this.menuStrip1.BackColor = System.Drawing.Color.SkyBlue;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hOMEToolStripMenuItem});
+            this.hOMEToolStripMenuItem,
+            this.eVENTToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(880, 28);
@@ -61,7 +63,7 @@
             // 
             this.gridAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridAdmin.Location = new System.Drawing.Point(0, 33);
-            this.gridAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.gridAdmin.Name = "gridAdmin";
             this.gridAdmin.RowHeadersWidth = 51;
             this.gridAdmin.Size = new System.Drawing.Size(603, 596);
@@ -70,7 +72,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(660, 250);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(168, 22);
             this.textBox1.TabIndex = 5;
@@ -81,13 +83,20 @@
             // 
             this.btnRegister.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnRegister.Location = new System.Drawing.Point(688, 304);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(103, 50);
             this.btnRegister.TabIndex = 12;
             this.btnRegister.Text = "LOGOUT";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // eVENTToolStripMenuItem
+            // 
+            this.eVENTToolStripMenuItem.Name = "eVENTToolStripMenuItem";
+            this.eVENTToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.eVENTToolStripMenuItem.Text = "EVENT";
+            this.eVENTToolStripMenuItem.Click += new System.EventHandler(this.eVENTToolStripMenuItem_Click);
             // 
             // Form3
             // 
@@ -100,7 +109,7 @@
             this.Controls.Add(this.gridAdmin);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -119,5 +128,6 @@
         private System.Windows.Forms.DataGridView gridAdmin;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.ToolStripMenuItem eVENTToolStripMenuItem;
     }
 }

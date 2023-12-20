@@ -16,17 +16,17 @@ namespace VSCollection
 {
     public partial class Form6 : Form
     {
-        DBCollectionEntities2 db;
+        DBCollectionEntities3 db;
         UserInfo user;
         public Form6()
         {
             InitializeComponent();
-            db = new DBCollectionEntities2();
+            db = new DBCollectionEntities3();
             user = new UserInfo();
         }
         private void loadOfficer()
         {
-            using (db = new DBCollectionEntities2())
+            using (db = new DBCollectionEntities3())
             {
                 var officer = db.Officer.ToList();
 

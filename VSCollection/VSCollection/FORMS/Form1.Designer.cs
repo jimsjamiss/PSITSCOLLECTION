@@ -36,6 +36,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnList = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
+            this.eVENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +59,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hOMEToolStripMenuItem,
-            this.pSITSToolStripMenuItem});
+            this.pSITSToolStripMenuItem,
+            this.eVENTToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(880, 28);
@@ -114,6 +116,13 @@
             this.btn1.UseVisualStyleBackColor = false;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
+            // eVENTToolStripMenuItem
+            // 
+            this.eVENTToolStripMenuItem.Name = "eVENTToolStripMenuItem";
+            this.eVENTToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.eVENTToolStripMenuItem.Text = "EVENT";
+            this.eVENTToolStripMenuItem.Click += new System.EventHandler(this.eVENTToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -149,6 +158,7 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.Button btn1;
+        private System.Windows.Forms.ToolStripMenuItem eVENTToolStripMenuItem;
     }
 }
 

@@ -109,3 +109,5 @@ C:\Users\embud\OneDrive\Documents\GitHub\PSITSCOLLECTION\VSCollection\VSCollecti
 C:\Users\embud\OneDrive\Documents\GitHub\PSITSCOLLECTION\VSCollection\VSCollection\obj\Debug\VSCollection.csproj.CopyComplete
 C:\Users\embud\OneDrive\Documents\GitHub\PSITSCOLLECTION\VSCollection\VSCollection\obj\Debug\VSCollection.exe
 C:\Users\embud\OneDrive\Documents\GitHub\PSITSCOLLECTION\VSCollection\VSCollection\obj\Debug\VSCollection.pdb
+C:\Users\embud\OneDrive\Documents\GitHub\PSITSCOLLECTION\VSCollection\VSCollection\obj\Debug\VSCollection.Form8.resources
+C:\Users\embud\OneDrive\Documents\GitHub\PSITSCOLLECTION\VSCollection\VSCollection\obj\Debug\VSCollection.FORMS.EventList.resources

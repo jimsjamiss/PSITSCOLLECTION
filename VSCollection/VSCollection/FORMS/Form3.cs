@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VSCollection.AppData;
+using VSCollection.FORMS;
 using VSCollection.Repository;
 
 
@@ -56,6 +57,12 @@ namespace VSCollection
         private void btnRegister_Click(object sender, EventArgs e)
         {
             new Form7().Show();
+            this.Hide();
+        }
+
+        private void eVENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new EventList().Show();
             this.Hide();
         }
     }

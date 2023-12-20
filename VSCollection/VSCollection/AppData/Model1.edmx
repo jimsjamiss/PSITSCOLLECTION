@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBCollectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBCollectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="id" />
@@ -58,6 +58,20 @@
           <Property Name="yearLevel" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_ACQUAINTANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_ACQUAINTANCE">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="varchar" MaxLength="527" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+          <Property Name="yearLevel" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="eventName" Type="varchar" MaxLength="255" />
+          <Property Name="eventDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DBCollection.dbo.vw_Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_Admin">
           <Key>
@@ -72,6 +86,48 @@ warning 6002: The table/view 'DBCollection.dbo.vw_Admin' does not have a primary
           <Property Name="yearLevel" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_CONGRESS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_CONGRESS">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="varchar" MaxLength="527" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+          <Property Name="yearLevel" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="eventName" Type="varchar" MaxLength="255" />
+          <Property Name="eventDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_GO_DAY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_GO_DAY">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="varchar" MaxLength="527" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+          <Property Name="yearLevel" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="eventName" Type="varchar" MaxLength="255" />
+          <Property Name="eventDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_INTRAMURALS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_INTRAMURALS">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="varchar" MaxLength="527" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+          <Property Name="yearLevel" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="eventName" Type="varchar" MaxLength="255" />
+          <Property Name="eventDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DBCollection.dbo.vw_PSITS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_PSITS">
           <Key>
@@ -82,6 +138,20 @@ warning 6002: The table/view 'DBCollection.dbo.vw_PSITS' does not have a primary
           <Property Name="Student_Name" Type="varchar" MaxLength="528" Nullable="false" />
           <Property Name="Course" Type="varchar" MaxLength="255" />
           <Property Name="yearLevel" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBCollection.dbo.vw_SEMINAR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_SEMINAR">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="varchar" MaxLength="527" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="255" />
+          <Property Name="yearLevel" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="eventName" Type="varchar" MaxLength="255" />
+          <Property Name="eventDate" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DBCollection.dbo.YearReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -123,6 +193,16 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_ACQUAINTANCE" EntityType="Self.vw_ACQUAINTANCE" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_ACQUAINTANCE].[STUDENT_NAME] AS [STUDENT_NAME], 
+    [vw_ACQUAINTANCE].[Course] AS [Course], 
+    [vw_ACQUAINTANCE].[yearLevel] AS [yearLevel], 
+    [vw_ACQUAINTANCE].[id] AS [id], 
+    [vw_ACQUAINTANCE].[eventName] AS [eventName], 
+    [vw_ACQUAINTANCE].[eventDate] AS [eventDate]
+    FROM [dbo].[vw_ACQUAINTANCE] AS [vw_ACQUAINTANCE]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_Admin" EntityType="Self.vw_Admin" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_Admin].[id] AS [id], 
@@ -132,6 +212,36 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
     [vw_Admin].[yearLevel] AS [yearLevel]
     FROM [dbo].[vw_Admin] AS [vw_Admin]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_CONGRESS" EntityType="Self.vw_CONGRESS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_CONGRESS].[STUDENT_NAME] AS [STUDENT_NAME], 
+    [vw_CONGRESS].[Course] AS [Course], 
+    [vw_CONGRESS].[yearLevel] AS [yearLevel], 
+    [vw_CONGRESS].[id] AS [id], 
+    [vw_CONGRESS].[eventName] AS [eventName], 
+    [vw_CONGRESS].[eventDate] AS [eventDate]
+    FROM [dbo].[vw_CONGRESS] AS [vw_CONGRESS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_GO_DAY" EntityType="Self.vw_GO_DAY" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_GO_DAY].[STUDENT_NAME] AS [STUDENT_NAME], 
+    [vw_GO_DAY].[Course] AS [Course], 
+    [vw_GO_DAY].[yearLevel] AS [yearLevel], 
+    [vw_GO_DAY].[id] AS [id], 
+    [vw_GO_DAY].[eventName] AS [eventName], 
+    [vw_GO_DAY].[eventDate] AS [eventDate]
+    FROM [dbo].[vw_GO_DAY] AS [vw_GO_DAY]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_INTRAMURALS" EntityType="Self.vw_INTRAMURALS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_INTRAMURALS].[STUDENT_NAME] AS [STUDENT_NAME], 
+    [vw_INTRAMURALS].[Course] AS [Course], 
+    [vw_INTRAMURALS].[yearLevel] AS [yearLevel], 
+    [vw_INTRAMURALS].[id] AS [id], 
+    [vw_INTRAMURALS].[eventName] AS [eventName], 
+    [vw_INTRAMURALS].[eventDate] AS [eventDate]
+    FROM [dbo].[vw_INTRAMURALS] AS [vw_INTRAMURALS]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_PSITS" EntityType="Self.vw_PSITS" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_PSITS].[id] AS [id], 
@@ -139,6 +249,16 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
     [vw_PSITS].[Course] AS [Course], 
     [vw_PSITS].[yearLevel] AS [yearLevel]
     FROM [dbo].[vw_PSITS] AS [vw_PSITS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_SEMINAR" EntityType="Self.vw_SEMINAR" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_SEMINAR].[STUDENT_NAME] AS [STUDENT_NAME], 
+    [vw_SEMINAR].[Course] AS [Course], 
+    [vw_SEMINAR].[yearLevel] AS [yearLevel], 
+    [vw_SEMINAR].[id] AS [id], 
+    [vw_SEMINAR].[eventName] AS [eventName], 
+    [vw_SEMINAR].[eventDate] AS [eventDate]
+    FROM [dbo].[vw_SEMINAR] AS [vw_SEMINAR]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="YearReport" EntityType="Self.YearReport" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -158,8 +278,7 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
     FROM [dbo].[YearReport1] AS [YearReport1]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBCollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -256,7 +375,7 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <Property Name="Total_3rd_Year" Type="Int32" />
           <Property Name="Total_4th_Year" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="DBCollectionEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBCollectionEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Event" EntityType="Self.Event" />
           <EntitySet Name="Officer" EntityType="Self.Officer" />
@@ -268,7 +387,7 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           <EntitySet Name="YearReport" EntityType="Self.YearReport" />
           <EntitySet Name="YearReport1" EntityType="Self.YearReport1" />
           <FunctionImport Name="sp_Delete">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_Update">
             <Parameter Name="id" Mode="In" Type="Int32" />
@@ -277,13 +396,78 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
             <Parameter Name="LName" Mode="In" Type="String" />
             <Parameter Name="Course" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="vw_INTRAMURALS" EntityType="DBCollectionModel.vw_INTRAMURALS" />
+          <EntitySet Name="vw_ACQUAINTANCE" EntityType="DBCollectionModel.vw_ACQUAINTANCE" />
+          <EntitySet Name="vw_CONGRESS" EntityType="DBCollectionModel.vw_CONGRESS" />
+          <EntitySet Name="vw_GO_DAY" EntityType="DBCollectionModel.vw_GO_DAY" />
+          <EntitySet Name="vw_SEMINAR" EntityType="DBCollectionModel.vw_SEMINAR" />
         </EntityContainer>
+        <EntityType Name="vw_INTRAMURALS">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vw_ACQUAINTANCE">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vw_CONGRESS">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vw_GO_DAY">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vw_SEMINAR">
+          <Key>
+            <PropertyRef Name="STUDENT_NAME" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="yearLevel" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBCollectionModelStoreContainer" CdmEntityContainer="DBCollectionEntities2">
+        <EntityContainerMapping StorageEntityContainer="DBCollectionModelStoreContainer" CdmEntityContainer="DBCollectionEntities3">
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="DBCollectionModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -386,6 +570,66 @@ warning 6002: The table/view 'DBCollection.dbo.YearReport1' does not have a prim
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_Delete" FunctionName="DBCollectionModel.Store.sp_Delete" />
           <FunctionImportMapping FunctionImportName="sp_Update" FunctionName="DBCollectionModel.Store.sp_Update" />
+          <EntitySetMapping Name="vw_INTRAMURALS">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_INTRAMURALS">
+              <MappingFragment StoreEntitySet="vw_INTRAMURALS">
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_ACQUAINTANCE">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_ACQUAINTANCE">
+              <MappingFragment StoreEntitySet="vw_ACQUAINTANCE">
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_CONGRESS">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_CONGRESS">
+              <MappingFragment StoreEntitySet="vw_CONGRESS">
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_GO_DAY">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_GO_DAY">
+              <MappingFragment StoreEntitySet="vw_GO_DAY">
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_SEMINAR">
+            <EntityTypeMapping TypeName="DBCollectionModel.vw_SEMINAR">
+              <MappingFragment StoreEntitySet="vw_SEMINAR">
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

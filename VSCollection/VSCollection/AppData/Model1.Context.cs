@@ -15,10 +15,10 @@ namespace VSCollection.AppData
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DBCollectionEntities2 : DbContext
+    public partial class DBCollectionEntities3 : DbContext
     {
-        public DBCollectionEntities2()
-            : base("name=DBCollectionEntities2")
+        public DBCollectionEntities3()
+            : base("name=DBCollectionEntities3")
         {
         }
     
@@ -37,6 +37,11 @@ namespace VSCollection.AppData
         public virtual DbSet<vw_PSITS> vw_PSITS { get; set; }
         public virtual DbSet<YearReport> YearReport { get; set; }
         public virtual DbSet<YearReport1> YearReport1 { get; set; }
+        public virtual DbSet<vw_INTRAMURALS> vw_INTRAMURALS { get; set; }
+        public virtual DbSet<vw_ACQUAINTANCE> vw_ACQUAINTANCE { get; set; }
+        public virtual DbSet<vw_CONGRESS> vw_CONGRESS { get; set; }
+        public virtual DbSet<vw_GO_DAY> vw_GO_DAY { get; set; }
+        public virtual DbSet<vw_SEMINAR> vw_SEMINAR { get; set; }
     
         public virtual int sp_Delete(Nullable<int> id)
         {

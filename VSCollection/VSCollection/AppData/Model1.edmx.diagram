@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6121f9f1bd024abeb71cb3589593148a" Name="Diagram1">
+      <Diagram DiagramId="3afbee9d0d324c02a532f754fe580b6e" Name="Diagram1">
         <EntityTypeShape EntityType="DBCollectionModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBCollectionModel.Event" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBCollectionModel.Officer" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -15,6 +15,11 @@
         <EntityTypeShape EntityType="DBCollectionModel.vw_PSITS" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBCollectionModel.YearReport" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBCollectionModel.YearReport1" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCollectionModel.vw_INTRAMURALS" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DBCollectionModel.vw_ACQUAINTANCE" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBCollectionModel.vw_CONGRESS" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBCollectionModel.vw_GO_DAY" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBCollectionModel.vw_SEMINAR" Width="1.5" PointX="2.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

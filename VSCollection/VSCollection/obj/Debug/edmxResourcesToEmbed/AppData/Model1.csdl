@@ -93,7 +93,7 @@
     <Property Name="Total_3rd_Year" Type="Int32" />
     <Property Name="Total_4th_Year" Type="Int32" />
   </EntityType>
-  <EntityContainer Name="DBCollectionEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DBCollectionEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Admin" EntityType="Self.Admin" />
     <EntitySet Name="Event" EntityType="Self.Event" />
     <EntitySet Name="Officer" EntityType="Self.Officer" />
@@ -114,5 +114,70 @@
       <Parameter Name="LName" Mode="In" Type="String" />
       <Parameter Name="Course" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="vw_INTRAMURALS" EntityType="DBCollectionModel.vw_INTRAMURALS" />
+    <EntitySet Name="vw_ACQUAINTANCE" EntityType="DBCollectionModel.vw_ACQUAINTANCE" />
+    <EntitySet Name="vw_CONGRESS" EntityType="DBCollectionModel.vw_CONGRESS" />
+    <EntitySet Name="vw_GO_DAY" EntityType="DBCollectionModel.vw_GO_DAY" />
+    <EntitySet Name="vw_SEMINAR" EntityType="DBCollectionModel.vw_SEMINAR" />
   </EntityContainer>
+  <EntityType Name="vw_INTRAMURALS">
+    <Key>
+      <PropertyRef Name="STUDENT_NAME" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="yearLevel" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vw_ACQUAINTANCE">
+    <Key>
+      <PropertyRef Name="STUDENT_NAME" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="yearLevel" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vw_CONGRESS">
+    <Key>
+      <PropertyRef Name="STUDENT_NAME" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="yearLevel" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vw_GO_DAY">
+    <Key>
+      <PropertyRef Name="STUDENT_NAME" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="yearLevel" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vw_SEMINAR">
+    <Key>
+      <PropertyRef Name="STUDENT_NAME" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="STUDENT_NAME" Type="String" Nullable="false" MaxLength="527" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="yearLevel" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="eventName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+  </EntityType>
 </Schema>

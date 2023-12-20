@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBCollectionModelStoreContainer" CdmEntityContainer="DBCollectionEntities2">
+  <EntityContainerMapping StorageEntityContainer="DBCollectionModelStoreContainer" CdmEntityContainer="DBCollectionEntities3">
     <EntitySetMapping Name="Admin">
       <EntityTypeMapping TypeName="DBCollectionModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -103,5 +103,65 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_Delete" FunctionName="DBCollectionModel.Store.sp_Delete" />
     <FunctionImportMapping FunctionImportName="sp_Update" FunctionName="DBCollectionModel.Store.sp_Update" />
+    <EntitySetMapping Name="vw_INTRAMURALS">
+      <EntityTypeMapping TypeName="DBCollectionModel.vw_INTRAMURALS">
+        <MappingFragment StoreEntitySet="vw_INTRAMURALS">
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_ACQUAINTANCE">
+      <EntityTypeMapping TypeName="DBCollectionModel.vw_ACQUAINTANCE">
+        <MappingFragment StoreEntitySet="vw_ACQUAINTANCE">
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONGRESS">
+      <EntityTypeMapping TypeName="DBCollectionModel.vw_CONGRESS">
+        <MappingFragment StoreEntitySet="vw_CONGRESS">
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_GO_DAY">
+      <EntityTypeMapping TypeName="DBCollectionModel.vw_GO_DAY">
+        <MappingFragment StoreEntitySet="vw_GO_DAY">
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_SEMINAR">
+      <EntityTypeMapping TypeName="DBCollectionModel.vw_SEMINAR">
+        <MappingFragment StoreEntitySet="vw_SEMINAR">
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yearLevel" ColumnName="yearLevel" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="STUDENT_NAME" ColumnName="STUDENT_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
